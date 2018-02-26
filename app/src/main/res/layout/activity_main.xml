@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mrsgx.graphic.MainActivity">
+
+
+
+    <ImageView
+        android:id="@+id/basepic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/photo3_med"/>
+    <FrameLayout
+        android:id="@+id/base"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <!-- 这里加一个fragment悬浮着-->
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>
