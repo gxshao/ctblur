@@ -23,13 +23,15 @@ class CTBlurUtils {
                     Math.floor((canvasView.height * scale).toDouble()).toInt()
             )
         }
+        const val ALGORITHM_GAUSSAINFASTBLUR=0
+        const val ALGORITHM_BOXBLUR=1
         //获取渲染算法
          fun getIBlurAlgorithm(algorithm: Int, contextWrapper: ContextWrapper): IBlur {
             //只实现了两种 高斯模糊和 方框滤波
-            when (algorithm ) {
-                0 -> return GaussianFastBlur()
-                1 -> return BoxBlur()
-                else -> return IgnoreBlur()
+            return when (algorithm ) {
+                ALGORITHM_GAUSSAINFASTBLUR -> GaussianFastBlur()
+                ALGORITHM_BOXBLUR -> BoxBlur()
+                else -> IgnoreBlur()
             }
         }
 
