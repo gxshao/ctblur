@@ -2,7 +2,7 @@
 This is a experimental project. A blur library for create a new mask to window. Thanks for "robinxdroid/BlurView"
 
 # using ctblur(java)
-1.Download zip file([zip](https://github.com/MrshaoGx/ctblur/blob/master/zip/ctblur.zip))<br>
+1.Download zip file([zip](https://github.com/MrshaoGx/ctblur/blob/master/ctblur.zip))<br>
 2.Copy ctblur.jar file and folders into your project directory<br>
 ```java
 CTBlurData data=new CTBlurData();
