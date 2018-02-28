@@ -60,7 +60,6 @@ Java_com_mrsgx_graphic_ctblur_GaussianFastBlur_ctGaussianFastBlur(JNIEnv *env,
         r /= 2;
     }
     env->SetIntArrayRegion(pix, (jsize) 0, (jsize) env->GetArrayLength(pix), arr);
-    delete arr;
     return pix;
 }
 
