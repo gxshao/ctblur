@@ -1,4 +1,4 @@
-package com.mrsgx.graphic.ctblur
+package com.mrsgx.ctblur
 
 /**
  * Created by Marshall  on 2018/2/23.

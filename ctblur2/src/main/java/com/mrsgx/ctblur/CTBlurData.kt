@@ -1,4 +1,4 @@
-package com.mrsgx.graphic.ctblur
+package com.mrsgx.ctblur
 
 import android.graphics.Bitmap
 import android.view.View

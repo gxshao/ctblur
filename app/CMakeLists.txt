@@ -11,7 +11,6 @@ cmake_minimum_required(VERSION 3.4.1)
 # Gradle automatically packages shared libraries with your APK.
 
 add_library( # Sets the name of the library.
-
             ctblur
 
              # Sets the library as a shared library.

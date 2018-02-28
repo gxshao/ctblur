@@ -8,10 +8,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.mrsgx.graphic.ctblur.CTBlur
-import com.mrsgx.graphic.ctblur.CTBlurData
-import com.mrsgx.graphic.ctblur.CTBlurUtils
-import com.mrsgx.graphic.ctblur.ContextWrapper
+import com.mrsgx.ctblur.CTBlur
+import com.mrsgx.ctblur.CTBlurData
+import com.mrsgx.ctblur.CTBlurUtils
+import com.mrsgx.ctblur.ContextWrapper
 import kotlinx.android.synthetic.main.glassfragment.view.*
 
 @SuppressLint("ValidFragment")
@@ -31,7 +31,7 @@ class Glass(private var rootview: View) : Fragment() {
 
     }
 
-    private lateinit var mBluror: CTBlur
+    private lateinit var mBluror: com.mrsgx.ctblur.CTBlur
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         views = inflater.inflate(R.layout.glassfragment, null)
