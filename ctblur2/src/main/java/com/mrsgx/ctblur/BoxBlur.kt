@@ -9,9 +9,10 @@ import android.graphics.Canvas
 
 class BoxBlur : IBlur {
     override fun blur(radius: Int, original: Bitmap): Bitmap {
-        if (radius and 1 == 0) throw IllegalArgumentException("半径值必须为奇数")
+
         val blurred = Bitmap.createBitmap(original.width, original.height,
                 Bitmap.Config.ARGB_8888)
+        if (radius and 1 == 0) return blurred
         val c = Canvas(blurred)
         val w = original.width
         val h = original.height
