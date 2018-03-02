@@ -25,7 +25,7 @@ Java_com_test_opengl_MainActivity_stringFromJNI(
 JNIEXPORT jintArray
 
 JNICALL
-Java_com_mrsgx_graphic_ctblur_GaussianFastBlur_ctGaussianFastBlur(JNIEnv *env,
+Java_com_mrsgx_ctblur_GaussianFastBlur_ctGaussianFastBlur(JNIEnv *env,
                                                                 jobject,
                                                                 jint r,
                                                                 jintArray pix,
@@ -66,7 +66,7 @@ Java_com_mrsgx_graphic_ctblur_GaussianFastBlur_ctGaussianFastBlur(JNIEnv *env,
 JNIEXPORT jintArray
 
 JNICALL
-Java_com_mrsgx_graphic_ctblur_BoxBlur_boxBlur(JNIEnv *env,
+Java_com_mrsgx_ctblur_BoxBlur_boxBlur(JNIEnv *env,
                                             jobject,
                                             jintArray pixels,
                                             jint w,

@@ -22,13 +22,16 @@ import kotlinx.android.synthetic.main.glassfragment.view.*
 class Glass(private var rootview: View) : Fragment() {
     private lateinit var views: View
     fun onBlur() {
-        mBluror.updateBlurView(10)
+        mBluror.updateBlurView(5)
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     fun onRestore() {
         mBluror.restoreBlurView()
 
+    }
+    fun onBackgroundChanged(){
+        mBluror.updateBlurView()
     }
 
     private lateinit var mBluror: com.mrsgx.ctblur.CTBlur
