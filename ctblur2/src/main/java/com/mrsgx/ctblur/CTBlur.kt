@@ -17,12 +17,10 @@ import java.util.concurrent.atomic.AtomicInteger
  */
 class CTBlur constructor(data: CTBlurData) {
     companion object {
-        private const val BLUR_ROUNDS_PER_UPDATE = 75
+        var BLUR_ROUNDS_PER_UPDATE = 3
         var BLUR_INTERCEPTOR = 35L
     }
-
     private var mData = data
-
     private val handler: Handler = Handler(Looper.getMainLooper())
     private val blurRunnable: Runnable = BlurRunnable()
 
@@ -83,6 +81,7 @@ class CTBlur constructor(data: CTBlurData) {
     private inner class BlurRunnable : Runnable {
         @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
         override fun run() {
+
             isWorking.compareAndSet(false, true)
             //创建待渲染位图
             var dest: Bitmap? = null
