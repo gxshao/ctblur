@@ -16,11 +16,11 @@ import android.view.View
  *
  */
 class CTBlurData {
-    var downSampleSize=8
-    lateinit var rootView:View
-    lateinit var viewsToBlurOnto:List<View>
-    val config=Bitmap.Config.ARGB_8888
-    var blurRadius = 1
+    var downSampleSize = 5
+    lateinit var rootView: View
+    lateinit var viewsToBlurOnto: List<View>
+    val config = Bitmap.Config.ARGB_8888
+    var blurRadius = 0
     var blurAlgorithm: IBlur? = null
     var contextWrapper: ContextWrapper? = null
 }

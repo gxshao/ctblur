@@ -17,12 +17,12 @@ import java.util.concurrent.atomic.AtomicInteger
  */
 class CTBlur constructor(data: CTBlurData) {
     companion object {
-        private const val BLUR_ROUNDS_PER_UPDATE = 10
-        var BLUR_INTERCEPTOR = 75L
+        private const val BLUR_ROUNDS_PER_UPDATE = 75
+        var BLUR_INTERCEPTOR = 35L
     }
 
     private var mData = data
-    private var dest: Bitmap? = null
+
     private val handler: Handler = Handler(Looper.getMainLooper())
     private val blurRunnable: Runnable = BlurRunnable()
 
@@ -53,9 +53,9 @@ class CTBlur constructor(data: CTBlurData) {
         if (!isBluring.get())
             Thread {
                 kotlin.run {
-                    while (mData.blurRadius-- > 1) {
+                    while (mData.blurRadius-- > 0) {
                         update()
-                        Thread.sleep(BLUR_INTERCEPTOR)
+                            Thread.sleep(BLUR_INTERCEPTOR)
                     }
                     isBluring.compareAndSet(false, true)
                 }
@@ -80,23 +80,20 @@ class CTBlur constructor(data: CTBlurData) {
     }
 
     //渲染线程
-    inner class BlurRunnable : Runnable {
+    private inner class BlurRunnable : Runnable {
         @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
         override fun run() {
             isWorking.compareAndSet(false, true)
             //创建待渲染位图
-
+            var dest: Bitmap? = null
             dest = CTBlurUtils.drawViewToBitmap(dest, mData.rootView, mData.downSampleSize, mData.config)
             //渲染并赋值给控件
             for (view in mData.viewsToBlurOnto) {
                 val d = BitmapDrawable(mData.contextWrapper!!.resources, mData.blurAlgorithm!!.blur(mData.blurRadius,
-                        CTBlurUtils.crop(dest!!.copy(dest!!.config, true), view, mData.downSampleSize)))
-                ViewCompat.setBackground(view, d)
-            }
-            if (mData.blurRadius <= 1) {
-                for (view in mData.viewsToBlurOnto) {
-                    handler.post({ view.background = BitmapDrawable(Bitmap.createBitmap(view.width, view.height, mData.config)) })
-                }
+                        CTBlurUtils.crop(dest.copy(dest.config, true), view, mData.downSampleSize)))
+                    ViewCompat.setBackground(view, d)
+                if(mData.blurRadius <= 0)
+                    ViewCompat.setBackground(view,BitmapDrawable())
             }
 
             //判断线程状态
